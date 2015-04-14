@@ -1,4 +1,4 @@
 function  WWHBookData_Context()
 {
-  return "DoradusAdmin";
+  return "Doradus_Administration";
 }

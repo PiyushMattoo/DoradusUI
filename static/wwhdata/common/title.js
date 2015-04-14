@@ -1,4 +1,4 @@
 function  WWHBookData_Title()
 {
-  return "DoradusAdmin";
+  return "Doradus Administration";
 }

@@ -3,11 +3,11 @@
 
 function  WWHCommonSettings_Object()
 {
-  this.mTitle = "DoradusAdmin";
+  this.mTitle = "Doradus Administration";
 
   this.mbCookies            = true;
   this.mCookiesDaysToExpire = 30;
-  this.mCookiesID           = "cxsgOuLANGw";
+  this.mCookiesID           = "JHm1a1tJ44I";
 
   this.mAccessible = "false";
 
