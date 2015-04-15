@@ -1,122 +1,123 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-<title>Doradus Web Portal</title>
-<link href="stylesheets/main.css" media="screen" rel="stylesheet"
-	type="text/css" />
-<script src="scripts/all.js" type="text/javascript"></script>
-<script src="scripts/custom.js" type="text/javascript"></script>
+  <title>Welcome to Doradus</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <script src="scripts/three.min.js"></script>
+  <script src="scripts/OrbitControls.js"></script>
 </head>
+<body style="margin: 0;">
+    <div class="over"></div><img src="bg_mask.png" class="mask"/>
+    <div class="doradus">
+      <h1>Doradus</h1>
+      <aside>Doradus is a REST service that extends a Cassandra NoSQL database with a graph-based data model, advanced indexing and search features, and a REST API.</aside>
+      <a href="DoradusAdministration.html">Get Started</a>
+    </div>
 
-<body class="index">
-	<div id="wrapper">
-		<div id="site">
-			<div id="title">
-				<h1>
-					Doradus Web portal<span></span>
-				</h1>
-				<p>Doradus is a REST service that extends a Cassandra NoSQL database with a graph-based data model, advanced indexing and search features, and a REST API.</p>
-			</div>
+  <script>
+
+    // Set up the scene, camera, and renderer as global variables.
+    var scene, camera, renderer;
+
+    init();
+    animate();
+
+    // Sets up the scene.
+    function init() {
+
+      // Create the scene and set the scene size.
+      scene = new THREE.Scene();
+      var WIDTH = window.innerWidth,
+          HEIGHT = window.innerHeight;
+
+      // Create a renderer and add it to the DOM.
+      renderer = new THREE.WebGLRenderer({antialias:true});
+      renderer.setSize(WIDTH, HEIGHT);
+      document.body.appendChild(renderer.domElement);
+
+      // Create a camera, zoom it out from the model a bit, and add it to the scene.
+      camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
+      camera.position.set(250,250,250);
+      scene.add(camera);
+
+      // Create an event listener that resizes the renderer with the browser window.
+      window.addEventListener('resize', function() {
+        var WIDTH = window.innerWidth,
+            HEIGHT = window.innerHeight;
+        renderer.setSize(WIDTH, HEIGHT);
+        camera.aspect = WIDTH / HEIGHT;
+        camera.updateProjectionMatrix();
+      });
+
+      // Set the background color of the scene.
+      renderer.setClearColorHex(0x000000, 1);
+
+      // Create a light, set its position, and add it to the scene.
+      var light = new THREE.PointLight(0xffffff);
+      light.position.set(-100,200,100);
+      scene.add(light);
+
+      // Load in the mesh and add it to the scene.
+      // var loader = new THREE.JSONLoader();
+      // loader.load( "models/treehouse_logo.js", function(geometry){
+      //   var material = new THREE.MeshLambertMaterial({color: 0x55B663});
+      //   mesh = new THREE.Mesh(geometry, material);
+      //   scene.add(mesh);
+      // });
+      // create the particle variables
+      var particleCount = 600,
+          particles = new THREE.Geometry(),
+          pMaterial = new THREE.ParticleBasicMaterial({
+            color: 0xFFFFFF,
+            size: 1
+          });
+
+      // now create the individual particles
+      for (var p = 0; p < particleCount; p++) {
+
+        // create a particle with random
+        // position values, -250 -> 250
+        var pX = Math.random() * 500 - 250,
+            pY = Math.random() * 500 - 250,
+            pZ = Math.random() * 500 - 250,
+            particle = new THREE.Vertex(
+              new THREE.Vector3(pX, pY, pZ)
+            );
+
+        // add it to the geometry
+        particles.vertices.push(particle);
+      }
+
+      // create the particle system
+      var particleSystem = new THREE.ParticleSystem(
+          particles,
+          pMaterial);
+
+      // add it to the scene
+      scene.add(particleSystem);
+      // Add OrbitControls so that we can pan around with the mouse.
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    }
 
 
-			<!-- Control for driving the plugin -->
-			<ul class="splitter">
-				<li>Filter by type:
-					<ul>
-						<li class="segment-1 selected-1"><a href="#" data-value="all">Everything</a></li>
-						<li class="segment-0"><a href="#" data-value="app">Tutorials</a></li>
-						<li class="segment-2"><a href="#" data-value="util">Downloads</a></li>
-						<li class="segment-3"><a href="#" data-value="topics">Specific Topics</a></li>
-					</ul>
-				</li>
-				<li>Sort By:
-					<ul>
-						<li class="segment-1 selected-1"><a href="#"
-							data-value="name">Name</a></li>
-						<li class="segment-2"><a href="#" data-value="size">Size</a></li>
-					</ul>
-				</li>
-			</ul>
+    // Renders the scene and updates the render as needed.
+    function animate() {
 
-			<div class="demo">
-				<ul id="list" class="image-grid" style="height: 600px !important;">
-					<li data-id="id-1" class="util"><img width="128" height="128"
-						src="images/activity-monitor.png?1354486198" /> <strong>Source</strong> <span>348 KB</span></li>
-					<li data-id="id-2" class="app"><img width="128" height="128"
-						src="images/address-book.png?1354486198" /> <strong>Graph
-							Based Database</strong><span>1904 KB</span></li>
-					<li data-id="id-3" class="app"><img width="128" height="128"
-						src="images/finder.png?1354486198" /> <strong>Learn
-							About DQL</strong> <span>1337 KB</span></li>
-					<li data-id="id-4" class="app"><img width="128" height="128"
-						src="images/front-row.png?1354486198" /> <strong>Aggregate
-							Queries</strong> <span>401 KB</span></li>
-					<li data-id="id-5" class="app"><img width="128" height="128"
-						src="images/google-pokemon.png?1354486198" /> <strong>Time
-							Series Data</strong> <span>12875 KB</span></li>
-					<li data-id="id-6" class="app"><img width="128" height="128"
-						src="images/ical.png?1354486198" /> <strong>Reference
-							Docs</strong> <span>5273 KB</span></li>
-					<li data-id="id-7" class="app"><img width="128" height="128"
-						src="images/ichat.png?1354486198" /> <strong>Your First Spider & OLAP apps</strong> <span>5437
-							KB</span></li>
-					<li data-id="id-8" class="app"><img width="128" height="128"
-						src="images/interface-builder.png?1354486198" /> <strong>Bulk Data Loading</strong>
-						<span>2764 KB</span></li>
-					<li data-id="id-9" class="util"><img width="128" height="128"
-						src="images/keychain-access.png?1354486198" /> <strong>Pre-Compiled Distribution</strong>
-						<span>972 KB</span></li>
-					<li data-id="id-10" class="topics"><img width="128" height="128"
-						src="images/textedit.png?1354486198" /> <strong>Document Storage, Indexing</strong> <span>1669
-							KB</span></li>
-					<li data-id="id-11" class="topics"><img width="128" height="128"
-						src="images/textedit.png?1354486198" /> <strong>Time Series Data</strong> <span>1669
-							KB</span></li>
-					<li data-id="id-12" class="topics"><img width="128" height="128"
-						src="images/textedit.png?1354486198" /> <strong>Graph Based data</strong> <span>1669
-							KB</span></li>		
-				</ul>
-			</div>
+      // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+      requestAnimationFrame(animate);
+      
+      // Render the scene.
+      renderer.render(scene, camera);
+      controls.update();
 
-			<p class="splitter">Isn’t Doradus cool? Now, choose your option:</p>
+    }
 
-			<div class="actions">
-				<p>
-					<a class="download"
-						href="https://github.com/dell-oss/Doradus/archive/master.zip">
-						<strong>Download</strong> <span>Version <span
-							class="version">v2.3</span></span>
-					</a>
-				</p>
-				<p>
-					<a class="demos-n-docs" href="static/DoradusAdministration.html"><strong>Demos
-							&amp; Docs</strong></a> </a>
-				</p>
-				<p>
-					<a class="fork"
-						href="https://github.com/dell-oss/Doradus#fork-destination-box">
-						<strong>Fork on GitHub</strong>
-					</a>
-				</p>
-			</div>
-			
-			<p class="splitter">Doradus is used by numerous projects, organizations from startups to Fortune 500:</p>
-			
-			<div class="actions">
-				<p>
-					      <a href="http://software.dell.com/products/unified-communications-command-suite-analytics/"><img src="images/ucssa.jpg?1354486198"
-						  alt="Unified Communications Command Suite Analytics" height="120" width="120"/></a>				   
-				</p>
-			</div> 
-		</div>
-	</div>
-	
-	<p class="footer">
-		<span>Doradus is available under the Apache License Version 2.0. See LICENSE.txt or <a href="http://www.apache.org/licenses/"> Apache Licenses </a>for a copy of this license.</span>
-    </p>
+  </script>
 
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' async rel='stylesheet' type='text/css'>
 </body>
 </html>
