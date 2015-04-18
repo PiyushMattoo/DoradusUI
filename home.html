@@ -12,6 +12,17 @@
 <script src="scripts/all.js" type="text/javascript"></script>
 <script src="scripts/custom.js" type="text/javascript"></script>
 <script src="scripts/slides.js" type="text/javascript"></script>
+<script src="scripts/jquery.slides.min.js" type="text/javascript"></script>
+
+<script>
+    $(function(){
+      $("#slides").slidesjs({
+        width: 940,
+        height: 528
+      });
+    });
+  </script>
+  
 </head>
 
 <body class="index">
@@ -24,6 +35,16 @@
 			<p class="splitter">What is Doradus</p>
 			
 			<div class="actions">
+			<div id="slides">
+				<img src="images/Blue 1.png">
+				<img src="images/Blue 2.png">
+				<img src="images/Blue 3.png">
+				<img src="images/Blue 4.png">
+				<img src="images/Blue 5.png">
+  </div>
+			
+			
+			<!--
 				<div id="slider">
 					<a href="#" class="control_next"><img width="30" height="30" src="images/next.png" /></a>
 					<a href="#" class="control_prev"><img width="30" height="30" src="images/back.png" /></a>
@@ -34,6 +55,7 @@
 							<li>The Doradus Spider service is best suited for unstructured/semi-structured data or data that is highly mutable: document stores, message graphs, directories, etc. It uses indexing techniques such as trie trees to support fully-inverted tables. Spider offers fine-grained updates, immediate indexing, table-level sharding, and other features that benefit full text applications.</li>
 						</ul>  
 				</div>
+		    -->
 			</div>
 			
 			<p class="splitter">Use Cases</p>
