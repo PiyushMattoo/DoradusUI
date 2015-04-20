@@ -5,14 +5,14 @@
   overflow:hidden;
 }
 
-#slider {
+#slider, #slider-two {
   position: relative;
   overflow: hidden;
   margin: 20px auto 0 auto;
   border-radius: 4px;
 }
 
-#slider ul {
+#slider ul, #slider-two ul {
   position: relative;
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@
   list-style: none;
 }
 
-#slider ul li {
+#slider ul li, #slider-two ul li {
   position: relative;
   display: block;
   float: left;
