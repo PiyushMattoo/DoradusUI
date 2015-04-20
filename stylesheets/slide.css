@@ -22,7 +22,7 @@
 
 #slider ul li {
   position: relative;
-  display: block;
+  display: inline;
   float: left;
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@
   text-align: center;
   line-height: 625px;
   list-style: none;
-  vertical-align: text-top;
+  vertical-align: top;
 }
 
 a.control_prev, a.control_next {
