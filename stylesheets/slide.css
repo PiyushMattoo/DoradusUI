@@ -16,6 +16,7 @@
   position: relative;
   margin: 0;
   padding: 0;
+  height: 200px;
   list-style: none;
 }
 
@@ -25,9 +26,11 @@
   float: left;
   margin: 0;
   padding: 0;
-  background: #ccc;
+  width: 1000px;
+  height: 450px;
+  background: #35393c;
   text-align: center;
-  line-height: 300px;
+  line-height: 450px;
 }
 
 a.control_prev, a.control_next {
