@@ -8,7 +8,6 @@
 #slider {
   position: relative;
   overflow: hidden;
-  margin: 20px auto 0 auto;
   border-radius: 4px;
 }
 
@@ -26,11 +25,11 @@
   float: left;
   margin: 0;
   padding: 0;
-  width: 1000px;
+  width: 1150px;
   height: 450px;
   background: #35393c;
   text-align: center;
-  line-height: 450px;
+  line-height: 550px;
 }
 
 a.control_prev, a.control_next {
