@@ -30,7 +30,9 @@
   height: 450px;
   background: #35393c;
   text-align: center;
-  line-height: 550px;
+  line-height: 625px;
+  list-style: none;
+  vertical-align: text-top;
 }
 
 a.control_prev, a.control_next {
