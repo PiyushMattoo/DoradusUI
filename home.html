@@ -7,49 +7,23 @@
 <title>Doradus Web Portal</title>
 <link href="stylesheets/main.css" media="screen" rel="stylesheet"
 	type="text/css" />
-<link href="stylesheets/slide.css" media="screen" rel="stylesheet"
-	type="text/css" />
 <script src="scripts/all.js" type="text/javascript"></script>
 <script src="scripts/custom.js" type="text/javascript"></script>
-<script src="scripts/slides.js" type="text/javascript"></script>
 </head>
 
 <body class="index">
 	<div id="wrapper">
 		<div id="site">
-			<div id="title">
-				<img style="max-width:100%; max-height: 100%;"src="images/banner.png" />
-			</div>
-
 			<p class="splitter">What is Doradus</p>
 			
 			<div class="actions">
-				<div id="slider">
-					<a href="#" class="control_next"><img width="30" height="30" src="images/next.png" /></a>
-					<a href="#" class="control_prev"><img width="30" height="30" src="images/back.png" /></a>
-						<ul>
-							<li>Doradus is a REST service that extends a Cassandra NoSQL database with a graph-based data model, advanced indexing and search features, and a REST API. </li>
-							<li>Doradus is a pure Java application that can run as a daemon, Windows service, or console application. The REST API is provided by an embedded Jetty server. </li>
-							<li>A Doradus database cluster can host multiple schemas, called applications. Each application chooses a storage service to manage its data. </li>
-							<li>The Doradus Spider service is best suited for unstructured/semi-structured data or data that is highly mutable: document stores, message graphs, directories, etc.</li>
-						</ul>  
-				</div>
-			</div>
-		    
-			
-			
-			<p class="splitter">Use Cases</p>
-			<div class="actions">
-				<div id="slider-two">
-					<a href="#" class="control_next_two"><img width="30" height="30" src="images/next.png" /></a>
-					<a href="#" class="control_prev_two"><img width="30" height="30" src="images/back.png" /></a>
-						<ul>
-							<li>Use Case #1 </li>
-							<li>Use Case #2 </li>
-							<li>Use Case #3 </li>
-							<li>Use Case #4 </li>
-						</ul>  
-				</div>
+				<ul>
+				   <li>Doradus is a REST service that extends a Cassandra NoSQL database with a graph-based data model, advanced indexing and search features, and a REST API.</li>
+				   <li>The Doradus query language (DQL) extends Lucene full-text queries with graph navigation features such as link paths, quantifiers, and transitive searches.</li>
+				   <li>Doradus is a pure Java application that can run as a daemon, Windows service, or console application.</li>
+				   <li>A Doradus database cluster can host multiple schemas, called applications. Each application chooses a storage service to manage its data</li>
+				   <li>Doradus offers two storage services - OLAP and Spider, which offer different storage and performance features to benefit different types of applications.</li>
+				</ul>
 			</div>
 			
 			<!-- Control for driving the plugin -->
